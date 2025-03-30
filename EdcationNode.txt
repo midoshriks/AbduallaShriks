@@ -1,0 +1,100 @@
+laren = {
+    npm ,
+    ejs,
+    express,
+    mongoose,
+    nodemon,
+} 
+
+coment bisc buld project 
+    1 npm init -y
+    2 npm i express 
+    3 npm i nodemon 
+        Run project =  nodemon NameFile.js 
+    // Database 
+    1 npm i mongoose 
+    // install blade template
+    1 npm i ejs
+
+// ?  لسحب مسروع وتسطيب من gitub
+    1 npm i
+
+Auto refresh {
+    1 = npm i livereload connect-livereload
+    2 = in app.js : {
+        const path = require("path");
+        const livereload = require("livereload");
+        const liveReloadServer = livereload.createServer();
+        liveReloadServer.watch(path.join(__dirname, 'public'));
+        
+        
+        const connectLivereload = require("connect-livereload");
+        app.use(connectLivereload());
+        
+        liveReloadServer.server.once("connection", () => {
+        setTimeout(() => {
+            liveReloadServer.refresh("/");
+        }, 100);
+        });
+    }
+    3 = in package.json {
+        "scripts": {
+            "start": "node app.js",
+            "watch": "nodemon --ext *"
+        }   
+    }
+    4 run in treminal {
+        npm run watch
+    }
+
+}
+
+how writh forEach {
+    <% array.forEach((element , index) => { %>
+        line code view       
+    <% }) %>
+}
+
+model.find() ==> to get all data from Database in mongoose
+
+model.save() ==> to send data to Database in mongoose
+model.create(req.body) ==> to send data to Database in mongoose
+
+model.findById(req.params.id) ==> to get row by id data show from Database in mongoose
+
+model.findByIdAndUpdate(req.params.id, req.body) ==> Update data all user in Database in mongoose
+model.updateOne({_id: req.params.id}, req.body) ==> Update data all user in Database in mongoose
+
+model.findByIdAndDelete(req.params.id) ==> to get row by id data and delete from Database in mongoose
+model.deleteOne({ _id: req.params.id }) ==> to get row by id data and delete from Database in mongoose
+
+moment packdeg {
+    to fromt data
+    1 npm i moment
+    2 writh ==> <%= moment(customer.updatedAt).fromNow(); %>
+}
+
+delete data {
+    1 npm install method-override
+}
+
+clear spice in searchText{
+    1 ==> trim();
+    const searchText = req.body.search.trim();
+
+}
+
+from data {
+    require npm install method-override
+    Update ==> action="/update/<%= customer.id %>?_method=PUT"
+    Delete ==> action="/delete/<%= customer.id %>?_method=DELETE"
+}
+
+Route{
+    require Variable request after route get 
+    Get request
+    Variable request
+    Post request
+    Put request
+    Delete request
+}
